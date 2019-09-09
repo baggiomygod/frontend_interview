@@ -2,8 +2,8 @@
     console.log('window:', window)
     var zepto = {}
     function Z(dom, selector) {
-        var i, lenn = dom ? dom.length : 0
-        for(i = 0; i < lenn; i++){
+        var i, len = dom ? dom.length : 0
+        for(i = 0; i < len; i++){
             this[i] = dom[i]
         }
         this.length = len
