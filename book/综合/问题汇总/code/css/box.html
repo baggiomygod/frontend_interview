@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒子模型</title>
+    <style>
+        .content-box{
+            width: 200px;
+            padding: 10px;
+            border: 10px solid #000;
+            margin: 10px;
+        }
+        .border-box{
+            box-sizing: border-box;
+            width: 200px;
+            padding: 10px;
+            border: 10px solid #000;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box">
+       <h4>标准 content-box: width: 200</h4>
+       width = content
+       总宽度 = content + padding + border + width
+    </div>
+
+    <div class="border-box">
+        <h4>标准 border-box: width: 200</h4>
+        width = content + border + padding
+        总宽度 = margin + width
+     </div>
+</body>
+</html>

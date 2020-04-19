@@ -5,21 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>vue 响应式</title>
-    <script src="https://unpkg.com/vue"></script>
+    <script src="./vue-2.5.9.js"></script>
 </head>
 <body>
     <div id="app">
         <p>{{name}}</p>
         <p>{{age}}</p>
+        <base-checkbox v-model="lovingVue"></base-checkbox>
+
+        <br />
+
+        <div>{{testObj}}</div>
+        <button @click="changenNewObj">button1</button>
+        <button @click="changeObj">button2</button>
+        <div>{{list}}</div>
+        <div>{{list.length}}</div>
+        <button @click="changeList">button3</button>
     </div>
     <script>
-        var vm = new Vue({
-            el: '#app',
-            data: {
-                name: 'fan',
-                age: 20
-            }
-        })
+        
+
+        const box = Vue.component('base-checkbox', {
+            model: {
+                prop: 'checked',
+                event: 'change'
+            },
+            props: {
+                checked: Boolean
+            },
+            template: `
+                <input
+                type="checkbox"
+                v-bind:checked="checked"
+                v-on:change="$emit('change', $event.target.checked)"
+                >
+            `
+            })
+
+            var vm = new Vue({
+                el: '#app',
+                name: 'Test01',
+                components: {
+                    baseCheckbox: box,
+                },
+                data: {
+                    name: 'fan',
+                    age: 20,
+                    lovingVue: false,
+                    testObj: {
+                        a:1,
+                        b:2,
+                    },
+                    list: [
+                        {name: 'a', age: 1},
+                        {name: 'a', age: 1},
+                        {name: 'a', age: 1}
+                        ]
+                },
+                mounted() {
+                    setInterval(() => {this.lovingVue = !this.lovingVue}, 800)
+                },
+                methods: {
+                    changenNewObj () {
+                        const obj2 = { c: 3, d: 4 }
+                        const res = {data: obj2, code: 222}
+                        this.testObj = res
+                        // this.testObj.f = 2
+                    },
+                    changeObj() {
+                        this.testObj.data.c = 4444
+                    },
+                    changeList() {
+                        // this.list = [2, 2]
+                        // this.list.push({name: 2, age: 4})
+                        // this.list.forEach(i => {
+                        //     i.age += 1
+                        // })
+                        this.list[1].name = 'xxxx'
+                        this.list.length = 2
+                    }
+                }
+            })
     </script>
 </body>
 </html>

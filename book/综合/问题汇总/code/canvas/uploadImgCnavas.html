@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传图片前预览</title>
+</head>
+<body>
+    
+<div class="cont lastimg" id="js-imgbox">
+    <div class="btn upload"> 
+        <label>选择文件</label>
+        <input id="js-upload" type="file"> 
+    </div>
+    <canvas id="cvs-content"></canvas>
+<script>
+    const uploadFileInput = document.getElementById('js-upload')
+    uploadFileInput.addEventListener('change', (e) => {
+        console.log('e:', e)
+        const file = e.target.files[0]
+        viewImgBeforeUpload(file, drawToCanvas, 'cvs-content')
+    })
+
+function viewImgBeforeUpload (file, cb, canvasId) {
+  const pattern = /image\/\w+/
+  if (!pattern.test(file.type)) {
+    alert('请选择图片文件');
+    return false;
+  }
+  const reader = new FileReader();
+  reader.readAsDataURL(file) // 转为base64
+  reader.onload = function (e) {
+    cb(reader.result, canvasId)
+  }
+  return true
+}
+
+function drawToCanvas (imgData, canvasId) {
+  // 创建一个canvas画布
+  const targetCvs = document.getElementById(canvasId);
+  const ctx = targetCvs.getContext('2d');
+  // 创建一个img,设置src
+  const img = new Image()
+  img.src = imgData
+  img.onload = () => {
+    // 绘制图片
+    ctx.drawImage(img, 0, 0, 360, 180)
+    const strDataURI = targetCvs.toDataURL() // 获取canvas base64数据
+  }
+}
+</script>
+</body>
+</html>

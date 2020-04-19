@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多态在策略模式中的体现</title>
+</head>
+<body>
+    <div style="position: absolute; background: blue;">我是div</div>
+    <script>
+        var tween = {
+            linear() {},
+            easeIn() {},
+            strongEaseIn() {},
+            strongEaseOut() {},
+            ...
+        }
+        var Animate = function (dom) {
+            this.dom = dom // 运动的dom节点
+            this.startTime = 0 // 动画开始时间
+            this.startPosition = 0 // 开始位置
+            this.endPosition = 0
+            this.propertyName = null // dom节点需要被改变的css属性名
+            this.easing = null // 缓动算法
+            this.duration = null // 动画持续时间
+        }
+
+        // 启动动画
+        Animate.prototype.start 
+            = function(propertyName, endPos, duration, easing) {
+                this.easing = tween[easing] // 根据传入的动画算法名称使用不同的算法
+                // ...
+        }
+
+        var animate = new Animate(targetDom)
+        animate('top', 500, 1000, 'strongEaseOut')
+    </script>
+</body>
+</html>

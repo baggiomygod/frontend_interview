@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC</title>
+    <style>
+        p{
+            margin: 30px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h3>magin重叠现象</h3>
+    <p>123</p>
+    <p>abc</p>
+
+    <h3>触发BFC(overflow部位visible): overflow: hidden, 解决margin重叠问题</h3>
+    <p>123</p>
+    <div style="overflow: hidden;">
+        <p>abc</p>
+    </div>
+    {
+        overflow: auto;
+        display: block;
+        float: left;
+        display: inline-block;
+        position: absolute;
+        display: table-caption;
+        column-span: all;
+        column-width: initial;
+    }
+</body>
+</html>
