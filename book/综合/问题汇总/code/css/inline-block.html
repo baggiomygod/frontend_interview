@@ -6,35 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>inline-block</title>
     <style>
-        html{
+        html {
             color: #000;
         }
-        .div-l{
+
+        .div-l {
             display: inline-block;
             width: 100px;
             height: 100px;
             border: 1px solid #000;
         }
-        .div-r{
+
+        .div-r {
             width: 120px;
             height: 120px;
             display: inline-block;
             border: 1px solid #000;
         }
-        
-        .demo{
+
+        .demo {
             font-size: 0;
         }
 
-        .demo3{
+        .demo3 {
             font-size: 0px;
         }
-        .div-l-3{
+
+        .div-l-3 {
             vertical-align: middle;
             font-size: 30px;
             overflow: hidden;
         }
-        .div-r-3{
+
+        .div-r-3 {
             vertical-align: middle;
             font-size: 30px;
             overflow: hidden;
@@ -42,20 +46,20 @@
     </style>
 </head>
 <body>
-    <h3>inline-block问题： 中间会有间隙</h3>
-        <div class="div-l"></div>
-        <div class="div-r"></div>
-    
-    <h3>inline-block问题： font-size设为0 解决</h3>
-    <div class="demo">
-        <div class="div-l"></div>
-        <div class="div-r"></div>
-    </div>
+<h3>inline-block问题： 中间会有间隙</h3>
+<div class="div-l"></div>
+<div class="div-r"></div>
 
-    <h3>inline-block问题： 一个div里填入内容， 不能对齐， vertical-align: xxx解决对其问题</h3>
-    <div class="demo3">
-        <div class="div-l div-l-3">left</div>
-        <div class="div-r div-r-3"></div>
-    </div>
+<h3>inline-block问题： font-size设为0 解决</h3>
+<div class="demo">
+    <div class="div-l"></div>
+    <div class="div-r"></div>
+</div>
+
+<h3>inline-block问题： 一个div里填入内容， 不能对齐， vertical-align: xxx解决对其问题</h3>
+<div class="demo3">
+    <div class="div-l div-l-3">left</div>
+    <div class="div-r div-r-3"></div>
+</div>
 </body>
 </html>

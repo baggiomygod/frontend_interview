@@ -6,32 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>盒子模型</title>
     <style>
-        .content-box{
+        .content-box {
             width: 200px;
             padding: 10px;
             border: 10px solid #000;
-            margin: 10px;
+            background-color: beige;
         }
-        .border-box{
+
+        .border-box {
             box-sizing: border-box;
             width: 200px;
             padding: 10px;
             border: 10px solid #000;
-            margin: 10px;
+            background-color: beige;
         }
     </style>
 </head>
 <body>
-    <div class="content-box">
-       <h4>标准 content-box: width: 200</h4>
-       width = content
-       总宽度 = content + padding + border + width
+    <h4>标准 content-box: width: 200</h4>
+    <p>width = content</p>
+    <p>总宽度 = content + padding + border</p>
+<div class="content-box">
+    <div   div style="text-align: center;width: 200px; background-color: rgb(184, 169, 169);">
+        content:200px
     </div>
+</div>
+<br>
+__________________________________________________________
 
-    <div class="border-box">
-        <h4>标准 border-box: width: 200</h4>
-        width = content + border + padding
-        总宽度 = margin + width
-     </div>
+<h4>IE/怪异 border-box: width: 200</h4>
+<p>idth = content + border + padding</p>
+<p>总宽度 = width</p>
+<div class="border-box">
+    <div   div style="text-align: center;width: 160px; background-color: rgb(184, 169, 169);">
+        content:160px
+    </div>
+</div>
+<div style="text-align: center;width: 200px; background-color: rgb(184, 169, 169);">200px</div>
 </body>
 </html>

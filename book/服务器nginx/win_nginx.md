@@ -19,6 +19,7 @@ https://www.cnblogs.com/xiangzhong/p/11355252.html
 ```
 taskkill /f /t /im nginx.exe
 ```
+
 ## windows 查看端口 kill
 
 ```

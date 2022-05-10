@@ -6,20 +6,20 @@
     <title>装饰器</title>
 </head>
 <body>
-    <button id="btn">click</button>
-    <script>
+<button id="btn">click</button>
+<script>
     // before
     // 为原函数添加新函数，在原函数之前执行
-    Function.prototype.before = function(beforeFn) {
+    Function.prototype.before = function (beforeFn) {
         const _self = this
-        return function(){ // 返回包含原函数和新函数的 ”代理函数“
+        return function () { // 返回包含原函数和新函数的 ”代理函数“
             console.log('this:', this)
             console.log('_self:', _self)
             beforeFn.apply(this, arguments) // 执行新函数
             return _self.apply(this, arguments) // 执行原函数
         }
     }
-    
+
     // document.getElementById = document.getElementById.before(function(){  alert('new fn') })
 
     // const btn = document.getElementById('btn')
@@ -29,28 +29,37 @@
 
     // after
     // 原函数之后执行
-    Function.prototype.after = function(afterFn) {
+    Function.prototype.after = function (afterFn) {
         const _self = this
         console.log('this', this)
         console.log('_self', _self)
-        return function(){
+        return function () {
             const ret = _self.apply(this, arguments)
             afterFn.apply(this, arguments)
             return ret
         }
     }
 
-    window.onload = function(){alert(1)}
-    window.onload = (window.onload || function(){})
-    .after(
-        function(){alert(2)}
-    )
-    .after(
-        function(){alert(3)}
-    )
-    .after(
-        function(){alert(4)}
-    )
-    </script>
+    window.onload = function () {
+        alert(1)
+    }
+    window.onload = (window.onload || function () {
+    })
+        .after(
+            function () {
+                alert(2)
+            }
+        )
+        .after(
+            function () {
+                alert(3)
+            }
+        )
+        .after(
+            function () {
+                alert(4)
+            }
+        )
+</script>
 </body>
 </html>

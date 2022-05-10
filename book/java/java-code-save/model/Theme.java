@@ -22,9 +22,9 @@ public class Theme {
     // 导航属性
     @ManyToMany
     @JoinTable(
-            name="theme_spu",
-            joinColumns = @JoinColumn(name="theme_id"),
-            inverseJoinColumns = @JoinColumn(name="spu_id")
-            ) // 定义第三张表的规范
+            name = "theme_spu",
+            joinColumns = @JoinColumn(name = "theme_id"),
+            inverseJoinColumns = @JoinColumn(name = "spu_id")
+    ) // 定义第三张表的规范
     private List<Spu> spuList;
 }

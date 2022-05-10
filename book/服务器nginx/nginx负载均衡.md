@@ -19,7 +19,8 @@
 
 后端项目(Asp.Net Core WebApi) 不能直接使用Nginx作为Web服务器，需要先使用IIS、Kestrel部署多个实例，或者把项目部署成服务，然后才能使用Nginx配置负载均衡。
 
- 3-1. 假设我们已经使用IIS部署了三个Web API，分别为:localhost:8087，localhost:8088，localhost:8089。和上面类似的，只需在配置文件中相应增加upstream节点和Server节点即可
+3-1. 假设我们已经使用IIS部署了三个Web API，分别为:localhost:8087，localhost:8088，localhost:8089。和上面类似的，只需在配置文件中相应增加upstream节点和Server节点即可
+
 ```
 upstream WebApi {
         server localhost:8087;

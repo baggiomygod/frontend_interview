@@ -7,32 +7,32 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="btn">click</div>
-    <script>
-         // 管理单例的代码，
-        var getSingle = function(fn){
-            var result
-            return function(){
-                console.log('this:', this)
-                return result || (result = fn.apply(this, arguments))
-            }
+<div id="btn">click</div>
+<script>
+    // 管理单例的代码，
+    var getSingle = function (fn) {
+        var result
+        return function () {
+            console.log('this:', this)
+            return result || (result = fn.apply(this, arguments))
         }
+    }
 
-        var bindEvent = getSingle(function(){
-            var div = document.getElementById('btn')
-            div.addEventListener('click', () => {
-                alert('click')
-            })
+    var bindEvent = getSingle(function () {
+        var div = document.getElementById('btn')
+        div.addEventListener('click', () => {
+            alert('click')
         })
+    })
 
-        var render = function(){
-            console.log('开始渲染')
-            bindEvent()
-        }
+    var render = function () {
+        console.log('开始渲染')
+        bindEvent()
+    }
 
-        render() // 执行绑定
-        render() // 不重复绑定
-        render() // 不重复绑定
-    </script>   
+    render() // 执行绑定
+    render() // 不重复绑定
+    render() // 不重复绑定
+</script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>css动画</title>
     <style>
-        .animation{
+        .animation {
             background-color: brown;
             display: inline-block;
             position: absolute;
@@ -15,22 +15,40 @@
             animation: myAnimate 2s;
             animation-iteration-count: 10;
         }
+
         @keyframes myAnimate {
-            0% {left: 0px}
-            10% {left: 90px}
-            50% {left: 190px}
-            100% {left: 490px}
+            0% {
+                left: 0px
+            }
+            10% {
+                left: 90px
+            }
+            50% {
+                left: 190px
+            }
+            100% {
+                left: 490px
+            }
         }
+
         @-webkit-keyframes myAnimate {
-            0% {left: 100px}
-            10% {left: 90px}
-            50% {left: 190px}
-            100% {left: 490px}
+            0% {
+                left: 100px
+            }
+            10% {
+                left: 90px
+            }
+            50% {
+                left: 190px
+            }
+            100% {
+                left: 490px
+            }
         }
     </style>
 </head>
 <body>
-    <a>https://www.w3school.com.cn/css3/css3_animation.asp</a>
-    <div class="animation">动画</div>
+<a>https://www.w3school.com.cn/css3/css3_animation.asp</a>
+<div class="animation">动画</div>
 </body>
 </html>
