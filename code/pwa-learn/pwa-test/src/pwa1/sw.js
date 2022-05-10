@@ -45,18 +45,18 @@ self.addEventListener('fetch', (e) => {
 
     e.respondWith(
         caches.open(CACHE_NAME)
-        .then(
-            cache => {
-                return cache.match(e.request).then(res => {
-                    if (res) {
-                        return res
-                    }
-                    return fetch(e.request).then(res => {
-                        // 请求到数据之后放入缓存，key: value
-                        cache.put(e.request, res.clone())
-                        return res
+            .then(
+                cache => {
+                    return cache.match(e.request).then(res => {
+                        if (res) {
+                            return res
+                        }
+                        return fetch(e.request).then(res => {
+                            // 请求到数据之后放入缓存，key: value
+                            cache.put(e.request, res.clone())
+                            return res
+                        })
                     })
-                })
-            }
-        ))
+                }
+            ))
 })

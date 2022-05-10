@@ -2,52 +2,55 @@
  * 类型保护
  */
 
- interface Bird {
+interface Bird {
     fly()
+
     layEggs()
- }
+}
 
- interface Fish {
-     swim()
-     layEggs()
- }
+interface Fish {
+    swim()
 
- function getSmallPet(): Fish | Bird {
+    layEggs()
+}
+
+function getSmallPet(): Fish | Bird {
     // ...
     let res: Fish | Bird
     return res
- }
+}
 
- let pet = getSmallPet()
+let pet = getSmallPet()
 
- pet.layEggs()
+pet.layEggs()
 
- pet.swim() // 直接访问会报错
- 
- // 断言
- (pet as Fish).swim() 
- (pet as Bird).fly() 
+pet.swim() // 直接访问会报错
 
- // 类型保护
+    // 断言
+    (pet as Fish).swim()
+(pet as Bird).fly()
 
- // 1.
- function isFish(pet: Fish | Bird): pet is Fish {
+// 类型保护
+
+// 1.
+function isFish(pet: Fish | Bird): pet is Fish {
     return (pet as Fish).swim !== undefined
- }
+}
 
- if (isFish(pet)) {
-     pet.swim()
- } else {
-     pet.fly()
- }
+if (isFish(pet)) {
+    pet.swim()
+} else {
+    pet.fly()
+}
 
 
- // 2. typeof 
+// 2. typeof
 
-function isNumber(x: any): x is number{
+function isNumber(x: any): x is number {
     return typeof x === 'number'
 }
-function isString(s: any): s is string{
+
+function isString(s: any): s is string {
     return typeof s === 'string'
 }
 

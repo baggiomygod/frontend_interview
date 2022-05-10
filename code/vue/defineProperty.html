@@ -7,29 +7,29 @@
     <title>define property</title>
 </head>
 <body>
-    <script>
-        var vm = {}
-        var data = {
-            name: 'zhangsan',
-            age: 20
-        }
+<script>
+    var vm = {}
+    var data = {
+        name: 'zhangsan',
+        age: 20
+    }
 
-        for (let key in data) {
-            console.log('key', key)
-            
-            data.hasOwnProperty(key) && ((key) => {
-                Object.defineProperty(vm, key, {
-                    get: function(){
-                        console.log('get', data[key])
-                        return data[key]
-                    },
-                    set: function(newVal) {
-                        console.log('set:', newVal)
-                        data[key] = newVal
-                    }
-                })
-            })(key)
-        }
-    </script>
+    for (let key in data) {
+        console.log('key', key)
+
+        data.hasOwnProperty(key) && ((key) => {
+            Object.defineProperty(vm, key, {
+                get: function () {
+                    console.log('get', data[key])
+                    return data[key]
+                },
+                set: function (newVal) {
+                    console.log('set:', newVal)
+                    data[key] = newVal
+                }
+            })
+        })(key)
+    }
+</script>
 </body>
 </html>

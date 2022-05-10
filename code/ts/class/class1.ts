@@ -11,12 +11,14 @@ class Animal {
     private privateName: string
     protected protectedName: string
     readonly readOnlyName: string
+
     constructor(name: string) {
         this.name = name
         this.privateName = name + '_p'
         this.protectedName = name + '_pr'
         this.readOnlyName = name + '_readonly'
     }
+
     move(d: number) {
         console.log('animal moved' + d)
     }
@@ -24,17 +26,21 @@ class Animal {
 
 class Dog extends Animal {
     speed: number
+
     constructor(name: string, speed: number = 0) {
         super(name)
         this.speed = speed
     }
+
     getProtactedName() {
         console.log(this.protectedName)
         // console.log(this.privateName)
     }
+
     getName(name: string) {
         console.log(name)
     }
+
     setReadOnlyName() {
         console.log(this.readOnlyName)
         this.readOnlyName = '123' // readOnle
@@ -47,8 +53,9 @@ class Rhino extends Animal {
     }
 }
 
-class Cat{
+class Cat {
     private name: string
+
     constructor(name: string) {
         this.name = name
     }

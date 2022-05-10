@@ -1,13 +1,16 @@
 interface IClock {
     currentTime: Date
+
     setTime(d: Date)
 }
 
-class Clock implements IClock{
+class Clock implements IClock {
     currentTime: Date
-    constructor(h: number, m:number) {
+
+    constructor(h: number, m: number) {
 
     }
+
     setTime(d: Date) {
         this.currentTime = d
     }
@@ -25,14 +28,18 @@ interface IClockConstructor {
 }
 
 class DigtalClock implements IClockInterface {
-    constructor(h: number, m: number) {}
+    constructor(h: number, m: number) {
+    }
+
     tick() {
         console.log('didadida')
     }
 }
 
 class AnalogClock implements IClockInterface {
-    constructor(h: number, m: number) {}
+    constructor(h: number, m: number) {
+    }
+
     tick() {
         console.log('ddd')
     }
@@ -42,7 +49,7 @@ function createClock(
     ctor: IClockConstructor,
     hour: number,
     mintute: number): IClockInterface {
-        return new ctor(hour, mintute)
+    return new ctor(hour, mintute)
 }
 
 let dc = createClock(DigtalClock, 1, 2)

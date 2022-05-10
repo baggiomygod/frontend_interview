@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
 // 引入 reducer 及 actionCreator
 import table from '../components/Home/TableRedux';
 import modal from '../components/Home/ModalRedux';
 
 export default combineReducers({
-  table,
-  modal,
+    table,
+    modal,
 });
 
 export * as tableActions from '../components/Home/TableRedux';

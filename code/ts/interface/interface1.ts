@@ -2,6 +2,7 @@
 interface IProps {
     color: string
     size?: number
+
     [propName: string]: any // 索引签名
 }
 
@@ -18,7 +19,7 @@ mySearch = function (a: string, b: number) {
 
 // 可索引类型
 interface IStringArray {
-    [index: number]: string  | number
+    [index: number]: string | number
 }
 
 let myArray: IStringArray

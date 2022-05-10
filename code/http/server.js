@@ -7,11 +7,11 @@ http.createServer((req, res) => {
         res.writeHead(200, {
             'Content-Type': 'text/html',
             // 服务端写入cookie, max-age: 多久过期；expires： 到什么时间点过期
-            'Set-cookie': ['id=123;max-age=2;domain=test.com','s_id=321;HttpOnly']
+            'Set-cookie': ['id=123;max-age=2;domain=test.com', 's_id=321;HttpOnly']
         })
         res.end(html)
     }
-    
+
     if (req.url === '/script.js') {
         res.writeHead(200, {
             'Content-Type': 'text/javascript',

@@ -1,5 +1,5 @@
 class Grid {
-    static origin = { x: 0, y: 0 }
+    static origin = {x: 0, y: 0}
 
     scale: number
 

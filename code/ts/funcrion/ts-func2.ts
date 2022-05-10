@@ -4,9 +4,11 @@ interface UIElement {
 
 class Handler {
     type: string
+
     onClickBad(this: Handler, e: Event) {
         this.type = e.type
     }
+
     onClickOk = (e: Event) => {
         this.type = e.type
     }

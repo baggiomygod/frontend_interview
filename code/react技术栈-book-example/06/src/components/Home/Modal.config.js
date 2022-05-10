@@ -1,4 +1,4 @@
 export default {
-  form: 'article',
-  fields: ['title', 'desc', 'date']
+    form: 'article',
+    fields: ['title', 'desc', 'date']
 };

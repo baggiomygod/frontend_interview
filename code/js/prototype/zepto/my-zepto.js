@@ -1,16 +1,17 @@
-(function(window){
+(function (window) {
     console.log('window:', window)
     var zepto = {}
+
     function Z(dom, selector) {
         var i, len = dom ? dom.length : 0
-        for(i = 0; i < len; i++){
+        for (i = 0; i < len; i++) {
             this[i] = dom[i]
         }
         this.length = len
         this.selector = selector || ''
     }
 
-    zepto.Z = function (dom, selector){
+    zepto.Z = function (dom, selector) {
         return new Z(dom, selector)
     }
 
@@ -31,7 +32,7 @@
         css: function () {
             console.log('css方法设置样式')
         },
-        html: function(){
+        html: function () {
             return 'html方法'
         }
     }

@@ -2,6 +2,7 @@ var passcode = 'secret123456';
 var Emplayee = /** @class */ (function () {
     function Emplayee() {
     }
+
     Object.defineProperty(Emplayee.prototype, "fullName", {
         get: function () {
             return this._fullName;
@@ -9,8 +10,7 @@ var Emplayee = /** @class */ (function () {
         set: function (name) {
             if (passcode && passcode === 'secret123456') {
                 this._fullName = name;
-            }
-            else {
+            } else {
                 console.log('Error');
             }
         },

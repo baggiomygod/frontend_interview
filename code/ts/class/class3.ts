@@ -5,6 +5,7 @@ class Emplayee2 {
     get fullName(): string {
         return this._fullName
     }
+
     set fullName(name: string) {
         if (passCode && passCode === 'secret123456') {
             this._fullName = name

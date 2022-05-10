@@ -3,4 +3,4 @@ import React from 'react';
 import CommentBox from './components/CommentBox';
 import '../css/style.css';
 
-ReactDOM.render(<CommentBox />, document.getElementById('root'));
+ReactDOM.render(<CommentBox/>, document.getElementById('root'));

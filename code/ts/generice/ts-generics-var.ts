@@ -1,7 +1,6 @@
-
 /**
  * 泛型变量
- * @param arg 
+ * @param arg
  */
 // T 类型变量
 function indentity<T>(arg: T): T {

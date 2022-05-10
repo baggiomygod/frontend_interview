@@ -2,9 +2,11 @@
 interface Shape {
     color: string
 }
+
 interface Size {
     size: number
 }
+
 interface Square extends Shape, Size {
     length: number
 }
@@ -13,7 +15,7 @@ let s = {} as Square
 s.color = 'red'
 s.length = 2
 
-let s2:Square = {
+let s2: Square = {
     color: 'blue',
     length: 2,
     size: 1
@@ -24,16 +26,20 @@ let s2:Square = {
 
 interface Counter {
     (start: number): string
+
     name: string
     age: number
+
     reset(): void
 }
 
 function getCounter(): Counter {
-    const counter = (function (start: number){}) as Counter
+    const counter = (function (start: number) {
+    }) as Counter
     counter.name = 'c'
     counter.age = 1
-    counter.reset = () => {}
+    counter.reset = () => {
+    }
     return counter
 }
 
@@ -49,17 +55,20 @@ interface SelectableControl extends Control {
 
 // 直接继承类
 class TextBox extends Control {
-    select() {}
+    select() {
+    }
 }
 
 // 继承类后实现接口
 // Button 继承了Control 有state, 可以实现SelectableControl
 class Button extends Control implements SelectableControl {
-    select() {}
+    select() {
+    }
 }
 
 // 直接实现接口
 // 报错，因为没有继承Control,不包含私有成员state
 class ImgC implements SelectableControl {
-    select() {}
+    select() {
+    }
 }
