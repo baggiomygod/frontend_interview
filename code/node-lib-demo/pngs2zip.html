@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./libs/jszip/dist/jszip.js"></script>
+  <script>
+    const imgs = ['./files/1.png', './files/2.png']
+    var zip = new JSZip();
+    var img = zip.folder("images");
+    const imgBase64 =  []
+
+      getBase64('./files/1.png').then(bs64 => {
+        imgBase64.push(bs64.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""))
+        img.file("1.png", imgBase64[0], {base64: true});
+      })
+      getBase64('./files/2.png').then(bs64 => {
+        imgBase64.push(bs64.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""))
+        img.file("2.png", imgBase64[1], {base64: true});
+        zip.generateAsync({type:"blob"}).then(function(blob) {
+        console.log(blob)
+        downFileToLocal('example/zip', blob)
+      });
+      })
+   
+    
+  function getBase64(img) {
+    const p = new Promise((resolve, reject) => {
+      var image = new Image()
+      image.crossOrigin = 'Anonymous'
+      image.src = img
+      if (img) {
+          image.onload = function () {
+            resolve(getBase64Image(image)) //将base64传给done上传处理
+          }
+      }
+    })
+    return p
+}
+
+function getBase64Image(img, width, height) {
+        //width、height调用时传入具体像素值，控制大小 ,不传则默认图像大小
+        var canvas = document.createElement('canvas')
+        canvas.width = width ? width : img.width
+        canvas.height = height ? height : img.height
+
+        var ctx = canvas.getContext('2d')
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+        var dataURL = canvas.toDataURL()
+        return dataURL
+    }
+
+function downFileToLocal(fileName, blob) {
+    // 创建用于下载文件的a标签
+    const d = document.createElement('a')
+    // 设置下载内容
+    d.href = window.URL.createObjectURL(blob)
+    // 设置下载文件的名字
+    d.download = fileName
+    // 界面上隐藏该按钮
+    d.style.display = 'none'
+    // 放到页面上
+    document.body.appendChild(d)
+    // 点击下载文件
+    d.click()
+    // 从页面移除掉
+    document.body.removeChild(d)
+    // 释放 URL.createObjectURL() 创建的 URL 对象
+    window.URL.revokeObjectURL(d.href)
+}
+  </script>
+</body>
+</html>
