@@ -30,7 +30,7 @@ app.json 或者 uniapp项目中是page.json
 ### 1. ctxdrawImage(video) 不支持video绘制
 
 
-## 3. gf.js 里有一段检测canvas的代码，小程序里一直报`invalid image`
+## 3. gif.js 里有一段检测canvas的代码，小程序里一直报`invalid image`
 小程序里CanvasRenderingContext2D 是 undefined 所以传入canvas 一直不成功
 ```
 else if (
